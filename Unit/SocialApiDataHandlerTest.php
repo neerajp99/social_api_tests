@@ -6,16 +6,17 @@ use Drupal\Tests\UnitTestCase;
 
 /**
  * Defines SocialApiDataHandler class.
+ *
  * @Annotation
  */
 class SocialApiDataHandlerTest extends UnitTestCase {
 
   /**
-   * __construct function
+   * __construct function.
    */
   public function __construct() {
-       parent::__construct();
-   }
+    parent::__construct();
+  }
 
   /**
    * {@inheritdoc}
@@ -25,19 +26,19 @@ class SocialApiDataHandlerTest extends UnitTestCase {
   }
 
   /**
-   * tests for class SocialApiDataHandler
+   * Tests for class SocialApiDataHandler.
    */
   public function testSocialApiDataHandler() {
     $key = "drupal";
     $value = "drupal123";
     $session = $this->getMock(SessionInterface::class);
     $socialApiDataHandler = $this->getMockBuilder(SocialApiDataHandler::class)
-                       ->setConstructorArgs(array($session))
-                       ->setMethods(array('set', 'get'))
-                       ->getMockForAbstractClass();
+      ->setConstructorArgs(array($session))
+      ->setMethods(array('set', 'get'))
+      ->getMockForAbstractClass();
     $socialApiDataHandler->method('get')
-                         ->with($key)
-                         ->willReturn($session->get($socialApiDataHandler->getSessionPrefix() . $key));
+      ->with($key)
+      ->willReturn($session->get($socialApiDataHandler->getSessionPrefix() . $key));
     $socialApiDataHandler->setSessionPrefix('1234');
     $this->assertEquals('1234_', $socialApiDataHandler->getSessionPrefix());
     $this->assertEquals($session->get($socialApiDataHandler->getSessionPrefix() . $key), $socialApiDataHandler->get($key));
