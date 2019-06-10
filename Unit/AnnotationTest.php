@@ -11,7 +11,7 @@ use Drupal\Tests\UnitTestCase;
 class AnnotationTest extends UnitTestCase {
 
   /**
-   * __construct function.
+   * Define __construct function.
    */
   public function __construct() {
     parent::__construct();
