@@ -78,9 +78,13 @@ class PluginTest extends UnitTestCase {
     $plugin_definition = array();
 
     $networkBase = $this->getMockBuilder('Drupal\social_api\Plugin\NetworkBase')
-      ->setConstructorArgs(array($configuration, 'drupal123', $plugin_definition, $entity_type_manager, $config_factory))
-      ->setMethods(['getSdk', 'create'])
-      ->getMockForAbstractClass();
+                        ->setConstructorArgs(array($configuration,
+                                                   'drupal123',
+                                                   $plugin_definition,
+                                                   $entity_type_manager,
+                                                   $config_factory))
+                        ->setMethods(['getSdk', 'create'])
+                        ->getMockForAbstractClass();
     $this->assertTrue(
       method_exists($networkBase, 'init'),
       'NetworkBase does not implements init function/method'

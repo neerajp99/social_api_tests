@@ -29,7 +29,6 @@ class AuthManagerTest extends UnitTestCase {
    * Tests for class Network.
    */
   public function testOAuth2Manager() {
-
     $authManager = $this->getMockBuilder(OAuth2Manager::class)
       ->getMockForAbstractClass();
     $this->assertTrue(
