@@ -20,7 +20,7 @@ class UserTest extends UnitTestCase {
   protected $entityType;
 
   /**
-   * __construct function.
+   * Define __construct function.
    */
   public function __construct() {
     parent::__construct();
