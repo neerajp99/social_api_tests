@@ -40,9 +40,9 @@ class SettingsTest extends UnitTestCase {
     $typed_config = $this->createMock(TypedConfigManagerInterface::class);
     $configs = $this->getMockBuilder('Drupal\Core\Config\ImmutableConfig')
       ->setConstructorArgs(array($config,
-       $storage,
-       $event_dispatcher,
-       $typed_config,
+        $storage,
+        $event_dispatcher,
+        $typed_config,
      ))
       ->getMock();
 
