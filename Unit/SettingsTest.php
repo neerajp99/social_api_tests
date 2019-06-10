@@ -1,28 +1,24 @@
 <?php
 
 use Drupal\social_api\Settings\SettingsBase;
-use Drupal\Core\Config\ImmutableConfig;
-use Drupal\Core\Config\Config;
-use Drupal\Component\Utility\NestedArray;
-use Drupal\Core\Cache\Cache;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Drupal\Core\Config\StorageInterface;
 use Drupal\Core\Config\TypedConfigManagerInterface;
-use Drupal\social_api\Settings\SettingsInterface;
 use Drupal\Tests\UnitTestCase;
 
 /**
  * Defines Settings Class.
+ *
  * @Annotation
  */
 class SettingsTest extends UnitTestCase {
 
   /**
-   * __construct function
+   * __construct function.
    */
   public function __construct() {
-       parent::__construct();
-   }
+    parent::__construct();
+  }
 
   /**
    * {@inheritdoc}
@@ -32,23 +28,23 @@ class SettingsTest extends UnitTestCase {
   }
 
   /**
-   * tests for class Settings
+   * Tests for class Settings.
    */
   public function testSettingsBase() {
     $config = $this->getMockBuilder('Drupal\Core\Config\Config')
-                   ->disableOriginalConstructor()
-                   ->getMock();
+      ->disableOriginalConstructor()
+      ->getMock();
 
     $storage = $this->createMock(StorageInterface::class);
     $event_dispatcher = $this->createMock(EventDispatcherInterface::class);
     $typed_config = $this->createMock(TypedConfigManagerInterface::class);
     $configs = $this->getMockBuilder('Drupal\Core\Config\ImmutableConfig')
-                          ->setConstructorArgs(array($config, $storage, $event_dispatcher, $typed_config))
-                          ->getMock();
+      ->setConstructorArgs(array($config, $storage, $event_dispatcher, $typed_config))
+      ->getMock();
 
     $settingsBase = $this->getMockBuilder(SettingsBase::class)
-                       ->setConstructorArgs(array($configs))
-                       ->getMockForAbstractClass();
+      ->setConstructorArgs(array($configs))
+      ->getMockForAbstractClass();
 
     $this->assertTrue(
       method_exists($settingsBase, 'getConfig'),
@@ -60,4 +56,5 @@ class SettingsTest extends UnitTestCase {
     );
     $settingsBase->getConfig();
   }
+
 }

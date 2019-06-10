@@ -1,7 +1,6 @@
 <?php
 
 use Drupal\social_api\Controller\SocialApiController;
-use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\social_api\Plugin\NetworkManager;
 use Drupal\Core\Cache\CacheBackendInterface;
@@ -10,16 +9,17 @@ use Drupal\Tests\UnitTestCase;
 
 /**
  * Defines Controller.
+ *
  * @Annotation
  */
 class ControllerTest extends UnitTestCase {
 
   /**
-   * __construct function
+   * __construct function.
    */
   public function __construct() {
-       parent::__construct();
-   }
+    parent::__construct();
+  }
 
   /**
    * {@inheritdoc}
@@ -29,7 +29,7 @@ class ControllerTest extends UnitTestCase {
   }
 
   /**
-   * tests for class SocialApiController
+   * Tests for class SocialApiController.
    */
   public function testSocialApiController() {
     $namespaces = $this->createMock(Traversable::class);
@@ -37,11 +37,11 @@ class ControllerTest extends UnitTestCase {
     $module_handler = $this->createMock(ModuleHandlerInterface::class);
     $container = $this->createMock(ContainerInterface::class);
     $networkManager = $this->getMockBuilder(NetworkManager::class)
-                                 ->setConstructorArgs(array($namespaces, $cache_backend, $module_handler))
-                                 ->getMock();
+      ->setConstructorArgs(array($namespaces, $cache_backend, $module_handler))
+      ->getMock();
     $controller = $this->getMockBuilder(SocialApiController::class)
-                                ->setConstructorArgs(array($networkManager))
-                                ->getMock();
+      ->setConstructorArgs(array($networkManager))
+      ->getMock();
     $this->assertTrue(
       method_exists($controller, 'create'),
       'SocialApiController does not implements create function/method'

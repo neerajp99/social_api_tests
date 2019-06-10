@@ -12,6 +12,7 @@ use Drupal\Tests\UnitTestCase;
 
 /**
  * Defines a User class.
+ *
  * @Annotation
  */
 class UserTest extends UnitTestCase {
@@ -19,11 +20,11 @@ class UserTest extends UnitTestCase {
   protected $entityType;
 
   /**
-   * __construct function
+   * __construct function.
    */
   public function __construct() {
-       parent::__construct();
-   }
+    parent::__construct();
+  }
 
   /**
    * {@inheritdoc}
@@ -33,10 +34,10 @@ class UserTest extends UnitTestCase {
   }
 
   /**
-   * tests for class UserAuthenticator
+   * Tests for class UserAuthenticator.
    */
   public function testUserAuthenticator() {
-    $sessionKeys = array('drupal','drupal234', '1234');
+    $sessionKeys = array('drupal', 'drupal234', '1234');
     $current_user = $this->createMock(AccountProxyInterface::class);
     $messenger = $this->createMock(MessengerInterface::class);
     $logger_factory = $this->createMock(LoggerChannelFactoryInterface::class);
@@ -44,8 +45,8 @@ class UserTest extends UnitTestCase {
     $data_handler = $this->createMock(SocialApiDataHandler::class);
 
     $userAuthenticator = $this->getMockBuilder(UserAuthenticator::class)
-                       ->setConstructorArgs(array($current_user, $messenger, $logger_factory, $user_manager, $data_handler))
-                       ->getMockForAbstractClass();
+      ->setConstructorArgs(array($current_user, $messenger, $logger_factory, $user_manager, $data_handler))
+      ->getMockForAbstractClass();
     $this->assertTrue(
       method_exists($userAuthenticator, 'setPluginId'),
       'UserAuthenticator does not implements setPluginId function/method'
@@ -72,15 +73,15 @@ class UserTest extends UnitTestCase {
   }
 
   /**
-   * tests for class UserManager
+   * Tests for class UserManager.
    */
   public function testUserManager() {
     $entity_type_manager = $this->createMock(EntityTypeManagerInterface::class);
     $messenger = $this->createMock(MessengerInterface::class);
     $logger_factory = $this->createMock(LoggerChannelFactoryInterface::class);
     $userManager = $this->getMockBuilder(UserManager::class)
-                        ->setConstructorArgs(array($this->entityType, $entity_type_manager, $messenger, $logger_factory))
-                        ->getMockForAbstractClass();
+      ->setConstructorArgs(array($this->entityType, $entity_type_manager, $messenger, $logger_factory))
+      ->getMockForAbstractClass();
     $this->assertTrue(
       method_exists($userManager, 'setPluginId'),
       'UserManager does not implements setPluginId function/method'
@@ -99,7 +100,7 @@ class UserTest extends UnitTestCase {
   }
 
   /**
-   * tests for class UserManagerInterface
+   * Tests for class UserManagerInterface.
    */
   public function testUserManagerInterface() {
     $userManagerInterface = $this->createMock(UserManagerInterface::class);

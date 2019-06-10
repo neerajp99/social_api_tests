@@ -6,16 +6,17 @@ use Drupal\Tests\UnitTestCase;
 
 /**
  * Defines OAuth2Manager.
+ *
  * @Annotation
  */
 class AuthManagerTest extends UnitTestCase {
 
   /**
-   * __construct function
+   * __construct function.
    */
   public function __construct() {
-       parent::__construct();
-   }
+    parent::__construct();
+  }
 
   /**
    * {@inheritdoc}
@@ -25,12 +26,12 @@ class AuthManagerTest extends UnitTestCase {
   }
 
   /**
-   * tests for class Network
+   * Tests for class Network.
    */
   public function testOAuth2Manager() {
 
     $authManager = $this->getMockBuilder(OAuth2Manager::class)
-                        ->getMockForAbstractClass();
+      ->getMockForAbstractClass();
     $this->assertTrue(
       method_exists($authManager, 'setClient'),
         'OAuth2Manager does not implements setClient function/method'
@@ -54,7 +55,7 @@ class AuthManagerTest extends UnitTestCase {
   }
 
   /**
-   * tests for class Network
+   * Tests for class Network.
    */
   public function testOAuth2ManagerInterface() {
     $authManagerInterface = $this->createMock(OAuth2ManagerInterface::class);
