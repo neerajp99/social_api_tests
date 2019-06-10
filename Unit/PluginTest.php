@@ -82,7 +82,8 @@ class PluginTest extends UnitTestCase {
         'drupal123',
         $plugin_definition,
         $entity_type_manager,
-        $config_factory))
+        $config_factory
+      ))
       ->setMethods(['getSdk', 'create'])
       ->getMockForAbstractClass();
     $this->assertTrue(
