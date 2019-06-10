@@ -79,10 +79,10 @@ class PluginTest extends UnitTestCase {
 
     $networkBase = $this->getMockBuilder('Drupal\social_api\Plugin\NetworkBase')
       ->setConstructorArgs(array($configuration,
-       'drupal123',
-       $plugin_definition,
-       $entity_type_manager,
-       $config_factory))
+        'drupal123',
+        $plugin_definition,
+        $entity_type_manager,
+        $config_factory))
       ->setMethods(['getSdk', 'create'])
       ->getMockForAbstractClass();
     $this->assertTrue(
