@@ -43,7 +43,7 @@ class SettingsTest extends UnitTestCase {
         $storage,
         $event_dispatcher,
         $typed_config,
-     ))
+      ))
       ->getMock();
 
     $settingsBase = $this->getMockBuilder(SettingsBase::class)
