@@ -45,7 +45,12 @@ class UserTest extends UnitTestCase {
     $data_handler = $this->createMock(SocialApiDataHandler::class);
 
     $userAuthenticator = $this->getMockBuilder(UserAuthenticator::class)
-      ->setConstructorArgs(array($current_user, $messenger, $logger_factory, $user_manager, $data_handler))
+      ->setConstructorArgs(array($current_user,
+        $messenger,
+        $logger_factory,
+        $user_manager,
+        $data_handler,
+      ))
       ->getMockForAbstractClass();
     $this->assertTrue(
       method_exists($userAuthenticator, 'setPluginId'),
@@ -80,7 +85,11 @@ class UserTest extends UnitTestCase {
     $messenger = $this->createMock(MessengerInterface::class);
     $logger_factory = $this->createMock(LoggerChannelFactoryInterface::class);
     $userManager = $this->getMockBuilder(UserManager::class)
-      ->setConstructorArgs(array($this->entityType, $entity_type_manager, $messenger, $logger_factory))
+      ->setConstructorArgs(array($this->entityType,
+        $entity_type_manager,
+        $messenger,
+        $logger_factory,
+      ))
       ->getMockForAbstractClass();
     $this->assertTrue(
       method_exists($userManager, 'setPluginId'),
