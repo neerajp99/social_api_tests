@@ -17,7 +17,7 @@ class SocialApiDataHandlerTest extends UnitTestCase {
    * @var \Symfony\Component\HttpFoundation\Session\SessionInterface
    */
   protected $session;
-
+ 
   /**
    * Variables are written to and read from session via this class.
    *
